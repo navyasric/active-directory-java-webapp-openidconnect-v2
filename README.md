@@ -80,9 +80,9 @@ You're done!
 
 Click on "Show users in the tenant" to start the process of logging in
 
-##Help and Support
+## Help and Support
 1. For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Auth code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow).
 1. For more info on GLUU see https://github.com/GluuFederation/oxAuth.
 
-##Credits
+## Credits
 This code has been inspired originally https://www.gluu.org/blog/java-openid-connect-servlet-sample/ and has been modified to suit the microsoft v2 implementation.
