@@ -36,15 +36,15 @@
     <filter-class>org.xdi.oxauth.rp.websample.LoginFilter</filter-class>
     <init-param>
       <param-name>authorizationServerHost</param-name>
-      <param-value>https://login.microsoftonline.com/c18d4c98-ffda-4eae-9f3e-26110a8d3cc6/v2.0</param-value>
+      <param-value>https://login.microsoftonline.com/{tenantId}/v2.0</param-value>
     </init-param>
     <init-param>
       <param-name>clientId</param-name>
-      <param-value>5b69ba6c-efe9-45b0-a229-b9caffa1a18a</param-value>
+      <param-value>AppClientId</param-value>
     </init-param>
     <init-param>
       <param-name>clientSecret</param-name>
-      <param-value><![CDATA[fWqWtY/F(YVY@(#799WUE4NR?[^csRi^i-z91Pgd_x(P2j]]></param-value> <!-- plain unencrypted client secret-->
+      <param-value><AppClientSecret></param-value> <!-- plain unencrypted client secret-->
     </init-param>
     <init-param>
       <param-name>authorizeParameters</param-name> <!-- with acr_values parameter it's possible to control which authentication script to execute (e.g. acr_values=duo to invoke "duo script")-->
