@@ -52,7 +52,7 @@
     </init-param>
     <init-param>
       <param-name>redirectUri</param-name> <!-- redirectUri must start from https:// protocol which is required for clients with application_type=web-->
-      <param-value>http://localhost:8080/websample/secure/aad</param-value>
+      <param-value>AppRedirectUri</param-value>
     </init-param>
     <init-param>
       <param-name>graphEndpoint</param-name> <!-- redirectUri must start from https:// protocol which is required for clients with application_type=web-->
@@ -82,8 +82,4 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
- <!--   <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-    </welcome-file-list>-->
-
 </web-app>
