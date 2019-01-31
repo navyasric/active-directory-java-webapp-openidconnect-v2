@@ -65,7 +65,7 @@ of the Azure Active Directory window respectively as *Name* and *Directory ID*
 
 ### Step 4:  Configure the sample to use your Azure AD tenant
 
-Open `web.xml` in the webapp/WEB-INF/ folder. Fill in with your tenant and app registration information noted in registration step. Replace '{tenantId}' with the tenant domain name, 'clientId' with the Application Id, 'clientSecret' with the key value noted and 'redirectUri' with redirect uri created from above step.
+Open `web.xml` in the webapp/WEB-INF/ folder. Fill in with your tenant and app registration information noted in registration step. Replace '{tenantId}' with the tenant Id or name, 'AppClientId' with the Application Id, 'AppClientSecret' with the key value noted and 'AppRedirectUri' with redirect uri created from above step.
 
 ### Step 5: Package and then deploy the war file.
 1. mvn package
