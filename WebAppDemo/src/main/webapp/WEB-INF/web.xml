@@ -44,7 +44,7 @@
     </init-param>
     <init-param>
       <param-name>clientSecret</param-name>
-      <param-value><AppClientSecret></param-value> <!-- plain unencrypted client secret-->
+      <param-value>AppClientSecret</param-value> <!-- plain unencrypted client secret-->
     </init-param>
     <init-param>
       <param-name>authorizeParameters</param-name> <!-- with acr_values parameter it's possible to control which authentication script to execute (e.g. acr_values=duo to invoke "duo script")-->
