@@ -1,5 +1,7 @@
 # Integrate Microsoft identity into a Java web application using OpenID Connect and call Microsoft Graph
 
+> Note: This sample is Work In Progress
+
 ### Overview
 
 This sample demonstrates a Java web application signing in a user and calling the Microsoft Graph API that is secured using Azure Active Directory.
@@ -38,6 +40,7 @@ From your shell or command line:
 
 1. On the **Register an application** page, enter your application's registration information:
     - In the **Name** section, enter a meaningful application name that will be displayed to users of the app.
+    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
     - Add http://localhost:8080/websample/secure/aad in **Reply URL**, and click Register.
     - In the succeeding page, Find the *Application ID* value and record it for later. You'll need it to configure the configuration file for this project.
 
@@ -50,7 +53,7 @@ From your shell or command line:
 ### Step 3:  Configure the sample to use your Azure AD tenant
 
 Open `web.xml` in the webAppDemo/src/main/webapp/WEB-INF/ folder. Fill in with your tenant and app registration information noted in registration step.
-- Replace '{tenantId}' with the tenant Id or name
+- Replace '{tenantId}' with the tenant Id or name if you want to restrict sign in to users in your tenant only
 - Replace 'AppClientId' with the Application Id
 - Replace 'AppClientSecret' with the key value noted above.
 - Replace 'AppRedirectUri' with Reply URL created from above step.
