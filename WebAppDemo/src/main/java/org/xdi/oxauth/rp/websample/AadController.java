@@ -18,13 +18,14 @@ public class AadController {
     @RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
     public String getDirectoryObjects(ModelMap model, HttpServletRequest httpRequest) {
         String accessToken = (String) httpRequest.getSession().getAttribute("access_token");
+        String idToken = (String) httpRequest.getSession().getAttribute("id_token");
         if (accessToken == null) {
             model.addAttribute("error", new Exception("AuthenticationResult not found in session."));
             return "/error";
         } else {
             String data;
             try {
-                data = getUsernamesFromGraph(accessToken);
+                data = getUserInfoFromGraph(accessToken, idToken);
                 model.addAttribute("user", data);
             } catch (Exception e) {
                 model.addAttribute("error", e);
@@ -34,7 +35,7 @@ public class AadController {
         return "/secure/aad";
     }
 
-    private String getUsernamesFromGraph(String accessToken) throws Exception {
+    private String getUserInfoFromGraph(String accessToken, String idToken) throws Exception {
 
 
         URL url = new URL("https://graph.microsoft.com/v1.0/me");
@@ -52,6 +53,14 @@ public class AadController {
         StringBuilder builder = new StringBuilder();
         User user = new User();
         JSONHelper.convertJSONObjectToDirectoryObject(jsonUser, user);
+
+        builder.append("<b><u>AccessToken: </u></b>" + accessToken + "<br/>");
+        builder.append("<br/>");
+        builder.append("<b><u>IdToken: </u></b>" + idToken + "<br/>");
+        builder.append("<br/>");
+
+        builder.append("<br/>");
+        builder.append("<b><u>MS Graph Response</u></b>"+ "<br/>");
         builder.append("Name: " + user.getUserPrincipalName() + "<br/>");
         builder.append("DisplayName: " + user.getDisplayName() + "<br/>");
         builder.append("Surname: " + user.getSurname() + "<br/>");

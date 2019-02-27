@@ -36,7 +36,7 @@
     <filter-class>org.xdi.oxauth.rp.websample.LoginFilter</filter-class>
     <init-param>
       <param-name>authorizationServerHost</param-name>
-      <param-value>https://login.microsoftonline.com/{tenantId}/v2.0</param-value>
+      <param-value>https://login.microsoftonline.com/common/v2.0</param-value>
     </init-param>
     <init-param>
       <param-name>clientId</param-name>
@@ -48,7 +48,7 @@
     </init-param>
     <init-param>
       <param-name>authorizeParameters</param-name> <!-- with acr_values parameter it's possible to control which authentication script to execute (e.g. acr_values=duo to invoke "duo script")-->
-      <param-value>scope=openid+profile+offline_access&amp;response_type=code&amp;nonce=nonce&amp;response_mode=query</param-value>
+      <param-value>scope=openid+profile+offline_access+user.read&amp;response_type=code&amp;response_mode=query</param-value>
     </init-param>
     <init-param>
       <param-name>redirectUri</param-name> <!-- redirectUri must start from https:// protocol which is required for clients with application_type=web-->
@@ -82,4 +82,5 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+
 </web-app>

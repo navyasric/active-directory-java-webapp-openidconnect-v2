@@ -6,7 +6,6 @@
 </head>
 <body>
 
-	<h3>User registered in the tenant</h3>
 	<p>${user}</p>
 	<form action="/websample">
 		<input type="submit" value="Home Page">
