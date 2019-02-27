@@ -1,14 +1,12 @@
 # Integrate Microsoft identity into a Java web application using OpenID Connect and call Microsoft Graph
 
-> Note: This sample is Work In Progress
-
 ### Overview
 
 This sample demonstrates a Java web application signing in a user and calling the Microsoft Graph API that is secured using Azure Active Directory.
 
-1. The Java web application uses the [Gluu OpenID Connect library](https://github.com/GluuFederation/oxAuth) to obtain an id token and access token from Azure Active Directory (Azure AD).
+1. The Java web application uses the [Gluu OpenID Connect library](https://github.com/GluuFederation/oxAuth) to obtain an id token and access token from Azure Active Directory (Azure AD). The id token represents the user's authentication.
 
-2. The id token represents the user's authentication and the access token is used as a bearer token when calling the Microsoft Graph API.
+2. The access token is used as a bearer token when calling the Microsoft Graph API.
 
 ![Topology](./ReadmeFiles/webapp-diagram.png)
 
@@ -53,10 +51,15 @@ From your shell or command line:
 ### Step 3:  Configure the sample to use your Azure AD tenant
 
 Open `web.xml` in the webAppDemo/src/main/webapp/WEB-INF/ folder. Fill in with your tenant and app registration information noted in registration step.
-- Replace '{tenantId}' with the tenant Id or name if you want to restrict sign in to users in your tenant only
 - Replace 'AppClientId' with the Application Id
 - Replace 'AppClientSecret' with the key value noted above.
 - Replace 'AppRedirectUri' with Reply URL created from above step.
+
+By default 'common' in the authorizationServerHost value allows you to sign in users with any Microsoft identity.
+- Replace with the tenant Id or name if you want to restrict sign in to users in your Azure AD tenant only
+- Replace with 'organizations' if you want to restrict sign in to Azure AD users only
+- Replace with 'consumers' if you want to restrict sign in to MSA(Microsoft personal account) users only
+
 
 ### Step 4: Package and then deploy the war file.
 On the command line, under the *WebAppDemo* folder, run:
@@ -73,7 +76,7 @@ Example: http://localhost:8080/websample/
 You're done!
 
 Click on "Sign in user and call Microsoft Graph" to start the process of logging in.
-Once you login, you will be displayed the user profile information such as Name obtained from Microsoft Graph.
+Once you login, you will be see the tokens obtained and the response returned from Microsoft Graph API call.
 
 ## Help and Support
 1. For more documentation on GLUU, see https://gluu.org/docs/ce.
