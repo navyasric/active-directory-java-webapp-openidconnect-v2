@@ -1,3 +1,5 @@
+> Note: This is a preview sample under validation.
+
 # Integrate Microsoft identity into a Java web application using OpenID Connect and call Microsoft Graph
 
 ### Overview
